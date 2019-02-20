@@ -22,28 +22,32 @@ import Navbar from 'react-bootstrap/Navbar'
 // Use 3rd party API with Axios -done-
 // Use a 3rd party library
 
+
 class App extends Component {
  
   state = {
+    //this is for the task input
     newTask: '',
     allTheToDoList: ['clean the room', 'study react'],
     quotes: '',
     quoteAuthor: '',
-   // myNewTask: localStorage.getItem("task")
-   myNewTask: []
+    myNewTask: []
 }
 
 
+//This function for the submit button
 submitForm = (event) => {
   event.preventDefault() //to stop the page from refreach when the user click the button
- 
   const newTaskToDo = this.state.newTask ;
-    //check if the input is not empty
+    //Check if the input is not empty
   if(newTaskToDo !== '') {
+       //Take a copy from the allTheToDoList array because i cant change the original array
         const copy = this.state.allTheToDoList.slice(0)
+        //Use PUSH function to add the value to the array
         copy.push(newTaskToDo)
         // localStorage.setItem('items', JSON.stringify(copy));
         //const data = JSON.parse(localStorage.getItem('items'));
+        // Update the state 
         this.setState({
          allTheToDoList:copy,
          newTask:'',
@@ -52,21 +56,23 @@ submitForm = (event) => {
       localStorage.setItem('task',copy);
     }
     }
- // declare localstorage
+ // Declare localstorage
  componentDidMount(){
-    // declare locale
+ // Declare locale
+ //var aValue = storage.getItem(keyName);
     if(!localStorage.getItem("task")){
-      localStorage.setItem('task', JSON.stringify(this.state.myNewTask));
+      localStorage.setItem('task', JSON.stringify(this.state.allTheToDoList));
     }
 
     localStorage.getItem('task') && this.setState({
-      myNewTask: JSON.parse(localStorage.getItem('task'))   
+      allTheToDoList: JSON.parse(localStorage.getItem('task'))   
     });
- }
-//  localStorage = () => {
-     
-//  }
 
+    
+ }
+
+
+//for the input field 
 updateForm = (event) =>{
   // let copy=this.state.myNewTask.slice(0);
   // let newTask = event.target.value;
@@ -74,38 +80,33 @@ updateForm = (event) =>{
   // this.setState({myNewTask: copy,
   //   newTask: event.target.value
   // })
-let myNewTask = event.target.value;
-localStorage.setItem("task", myNewTask);
-this.setState({newTask: myNewTask})
+
+//Get the input value
+let currentTask = event.target.value;
+//Update the localStorage value storage.setItem(keyName, keyValue);
+localStorage.setItem("task", currentTask);
+//Set the state to the new value
+this.setState({newTask: currentTask})
 
  
 }
 
 deleteTask = (index) => {
-  // copy current list of items
+  // Copy current list of items and using splice function to delete the current index
    const copy = this.state.allTheToDoList.splice(index,1)
    this.setState({ newTask: copy,
     newTask:'' });
 }
 
 deleteAllTasks = (event) => {
-  //make a copy from the array
+  //Make a copy from the array
   const copy = this.state.allTheToDoList;
-  // check if the array not empty
-    copy.splice(0)
+   //Using splice function to delete all the content of the array
+  copy.splice(0)
     this.setState({
       allTheToDoList: copy 
     });
 }
-
-// editTask = (index,event) => {
-//   const edit = this.state.newTask;
-//   edit = event.target.value;
-//   console.log(edit)
-//   this.setState({
-//     newTask: edit
-//   });
-// }
 
 componentDidMount(){
   axios(
@@ -127,7 +128,6 @@ componentDidMount(){
 
 
   render() {
-    // editTask = {this.editTask}
     const listofToDoList = this.state.allTheToDoList.map((task,index) => <Tasks taskData = {task} index={index} deleteTask = {this.deleteTask}/>);
 
     return (

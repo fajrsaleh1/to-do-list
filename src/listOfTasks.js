@@ -20,7 +20,9 @@ class Tasks extends Component {
     return (
       <div>
        <ul>
-        <li className = {this.state.line} onClick = {this.strikethrough}>{this.props.taskData} <Button  onClick = {() => this.props.deleteTask(this.props.index)} variant="light" >❌</Button></li>
+        <li className = {this.state.line} >
+        <span onClick = {this.strikethrough}>{this.props.taskData} </span>
+        <Button onClick = {() => this.props.deleteTask(this.props.index)} variant="light" >❌</Button></li>
         </ul> 
        </div> 
     );
