@@ -1,3 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic);
+
+body{
+  text-align: center;
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  color:white;
+  background-size: cover;
+  font-family: Lato, sans-serif;
+}
 .App {
   text-align: center;
 }
@@ -30,4 +39,176 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.container{
+  border: 2px solid white;
+  display: inline-block	;
+  flex-wrap: wrap;
+  width:50%; 
+  padding-top: 2%;
+  /* justify-content: center; */
+  align-items: center;
+  margin: 5px;
+  margin: 50px auto 0;
+
+}
+
+.container:after { 
+  content: "";
+  display: inline-block;
+  padding-bottom: 30%;
+  
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li, h3 {
+  clear:both;
+  list-style:none;
+  float: left;
+}
+li{
+  padding: 1%;
+}
+input, button {
+  outline: none;
+}
+
+button {
+  background: none;
+  border: 0;
+  color: white;
+  font-size: 15px;
+  width: 50px;
+  margin: 1px 0 0;
+  font-family: Lato, sans-serif;
+  cursor: pointer;
+}
+button:hover {
+  color: #333;
+}
+.clearButton{
+  padding: 2%;
+}
+
+h3,label {
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 10px 3px 10px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+input{
+  margin: 0;
+  font-size: 12px;
+  /* line-height: 18px; */
+  height: 12px;
+  width:40%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 6px;
+  font-family: Lato, sans-serif;
+  color: #888;
+}
+input:focus {
+  color: #333;
+}
+.strikethrough {
+  text-decoration: line-through; 
+}
+
+
+.qouites{
+  font-family:"Open Sans";
+  content: "\201C";
+  color:rgb(53, 80, 71);
+  
+}
+
+.author{
+  font-family:"Open Sans";
+  color:#333333;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.inputTask{
+  width:250px;
+}
+.quotesCopm{
+  padding: 5.3%;
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+@media only screen 
+  and (min-width: 375px) 
+  and (max-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    body{
+    background-color: #74EBD5;
+    background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+}
+h1{
+  padding-top:60px;
+}
+.container {
+  width: 350px;
+}
+.inputTask {
+  width:250px;
+}
+.quotesCopm{
+  padding: 10%;
+}} 
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+@media only screen 
+  and (min-width: 414px) 
+  and (max-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+      body{
+        background-color: #FEE140;
+        background-image: linear-gradient(90deg, #FEE140 0%, #FA709A 100%);
+
+      }
+}
+
+/* ----------- iPhone X ----------- */
+@media only screen 
+  and (min-width: 375px) 
+  and (max-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+    body{
+      background-color: #FBAB7E;
+      background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    }
+}
+
+@media screen 
+  and (min-width: 719px) 
+  and (max-width: 690px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (min-resolution: 192dpi) { 
+    body{
+      background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    }
+}
+
+@media screen 
+  and (min-width: 690px) 
+  and (max-width: 719px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+    body{
+      background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    }
 }
